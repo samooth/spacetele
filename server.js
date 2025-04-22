@@ -1,15 +1,15 @@
 #!/usr/bin/env node
-const HyperDHT = require('hyperdht')
+const SpaceDHT = require('spacedht')
 const net = require('net')
 const b4a = require('b4a')
 const argv = require('minimist')(process.argv.slice(2))
-const libNet = require('hyper-cmd-lib-net')
-const libUtils = require('hyper-cmd-lib-utils')
-const libKeys = require('hyper-cmd-lib-keys')
+const libNet = require('space-cmd-lib-net')
+const libUtils = require('space-cmd-lib-utils')
+const libKeys = require('space-cmd-lib-keys')
 const goodbye = require('graceful-goodbye')
 const connPiper = libNet.connPiper
 
-const helpMsg = 'Usage:\nhypertele-server -l service_port -u unix_socket ?--address service_address ?-c conf.json ?--seed seed ?--cert-skip ?--private'
+const helpMsg = 'Usage:\nspacetele-server -l service_port -u unix_socket ?--address service_address ?-c conf.json ?--seed seed ?--cert-skip ?--private'
 
 if (argv.help) {
   console.log(helpMsg)
@@ -70,12 +70,12 @@ const debug = argv.debug
 
 const seed = Buffer.from(conf.seed, 'hex')
 
-const dht = new HyperDHT({
+const dht = new SpaceDHT({
   bootstrap,
   connectionKeepAlive: conf.keepAlive
 })
 
-const keyPair = HyperDHT.keyPair(seed)
+const keyPair = SpaceDHT.keyPair(seed)
 
 const stats = {}
 
@@ -110,9 +110,9 @@ const server = dht.createServer({
 
 server.listen(keyPair).then(() => {
   if (conf.private) {
-    console.log(`hypertele (private): connect with seed ${b4a.toString(seed, 'hex')} (listening on ${b4a.toString(keyPair.publicKey, 'hex')})`)
+    console.log(`spacetele (private): connect with seed ${b4a.toString(seed, 'hex')} (listening on ${b4a.toString(keyPair.publicKey, 'hex')})`)
   } else {
-    console.log('hypertele:', keyPair.publicKey.toString('hex'))
+    console.log('spacetele:', keyPair.publicKey.toString('hex'))
   }
 })
 

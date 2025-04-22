@@ -1,11 +1,11 @@
-# hypertele
+# spacetele
 
-A swiss-knife proxy powered by [HyperDHT](https://github.com/holepunchto/hyperdht)!
+A swiss-knife proxy powered by [SpaceDHT](https://github.com/samooth/spacedht)!
 
 ## Installation
 ```
-npm install -g hypertele // hyperdht server proxy
-npm install -g hyper-cmd-utils // keygen utils
+npm install -g spacetele // spacedht server proxy
+npm install -g space-cmd-utils // keygen utils
 ```
 
 ## Server
@@ -13,7 +13,7 @@ npm install -g hyper-cmd-utils // keygen utils
 Standard pipe server
 
 ```sh
-hypertele-server --help
+spacetele-server --help
 ```
 
 **Create a JSON config file for your server**
@@ -41,8 +41,8 @@ options:
 ```sh
 examples:
 
-hypertele-server -l 22 -c config-server.json
-hypertele-server -l 22 --seed XXX
+spacetele-server -l 22 -c config-server.json
+spacetele-server -l 22 --seed XXX
 ```
 
 Note: the command will print out the pubkey
@@ -53,7 +53,7 @@ Note: the command will print out the pubkey
 Pub server
 
 ```sh
-hypertele-pub --help
+spacetele-pub --help
 ```
 
 **Create a JSON config file for your server**
@@ -79,8 +79,8 @@ options:
 ```sh
 examples:
 
-hypertele-pub -l 5555 -c config-server.json
-hypertele-pub -l 5555 --seed XXX
+spacetele-pub -l 5555 -c config-server.json
+spacetele-pub -l 5555 --seed XXX
 ```
 
 Note: the command will print out the pubkey
@@ -89,7 +89,7 @@ Note: the command will print out the pubkey
 ## Client
 
 ```sh
-hypertele --help
+spacetele --help
 ```
 
 **Create a JSON config file for your client**
@@ -105,28 +105,28 @@ options:
 -s SERVER_PEER_KEY : server peer key (command-line)
 -i keypair.json : keypair file
 --compress : enable chunk compression
---private : access a private hypertele server (expects -s to contain the server's seed instead of the public key)
+--private : access a private spacetele server (expects -s to contain the server's seed instead of the public key)
 ```
 
-Read more about using identities here: https://github.com/prdn/hyper-cmd-docs/blob/main/identity.md
+Read more about using identities here: https://github.com/prdn/space-cmd-docs/blob/main/identity.md
 
 ```sh
 examples:
 
-hypertele -p 1337 -c config-client.json
-hypertele -p 1337 -s PUBKEY_FROM_SERVER -i keypair.json
+spacetele -p 1337 -c config-client.json
+spacetele -p 1337 -s PUBKEY_FROM_SERVER -i keypair.json
 
 and...
 telnet localhost 1337
 ```
 
-## The hyper-cmd system
+## The space-cmd system
 
-hypertele supports the hyper-cmd system!
+spacetele supports the space-cmd system!
 
-Identity management: https://github.com/prdn/hyper-cmd-docs/blob/main/identity.md
+Identity management: https://github.com/prdn/space-cmd-docs/blob/main/identity.md
 
-Host resolution: https://github.com/prdn/hyper-cmd-docs/blob/main/resolve.md
+Host resolution: https://github.com/prdn/space-cmd-docs/blob/main/resolve.md
 
 ## License
 

@@ -1,15 +1,15 @@
 #!/usr/bin/env node
-const HyperDHT = require('hyperdht')
+const SpaceDHT = require('spacedht')
 const net = require('net')
 const argv = require('minimist')(process.argv.slice(2))
 const b4a = require('b4a')
-const libNet = require('hyper-cmd-lib-net')
-const libUtils = require('hyper-cmd-lib-utils')
-const libKeys = require('hyper-cmd-lib-keys')
+const libNet = require('space-cmd-lib-net')
+const libUtils = require('space-cmd-lib-utils')
+const libKeys = require('space-cmd-lib-keys')
 const goodbye = require('graceful-goodbye')
 const connPiper = libNet.connPiper
 
-const helpMsg = 'Usage:\nhypertele -p port_listen -u unix_socket ?--address service_address ?-c conf.json ?-i identity.json ?-s peer_key ?--private'
+const helpMsg = 'Usage:\nspacetele -p port_listen -u unix_socket ?--address service_address ?-c conf.json ?-i identity.json ?-s peer_key ?--private'
 
 if (argv.help) {
   console.log(helpMsg)
@@ -45,7 +45,7 @@ conf.private = argv.private != null
 if (conf.private) {
   if (keyPair != null) throw new Error('The --private flag is not compatible with the -i(dentity) flag, since the identity is derived from the peer key')
   const seed = argv.s
-  keyPair = HyperDHT.keyPair(b4a.from(seed, 'hex'))
+  keyPair = SpaceDHT.keyPair(b4a.from(seed, 'hex'))
 }
 
 // Unofficial opt, only used for tests
@@ -82,7 +82,7 @@ const debug = argv.debug
 
 const stats = {}
 
-const dht = new HyperDHT({
+const dht = new SpaceDHT({
   bootstrap,
   keyPair,
   connectionKeepAlive: conf.keepAlive
