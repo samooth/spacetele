@@ -108,7 +108,7 @@ options:
 --private : access a private spacetele server (expects -s to contain the server's seed instead of the public key)
 ```
 
-Read more about using identities here: https://github.com/prdn/space-cmd-docs/blob/main/identity.md
+Read more about using identities here: https://github.com/samooth/space-cmd-docs/blob/main/identity.md
 
 ```sh
 examples:
@@ -124,9 +124,9 @@ telnet localhost 1337
 
 spacetele supports the space-cmd system!
 
-Identity management: https://github.com/prdn/space-cmd-docs/blob/main/identity.md
+Identity management: https://github.com/samooth/space-cmd-docs/blob/main/identity.md
 
-Host resolution: https://github.com/prdn/space-cmd-docs/blob/main/resolve.md
+Host resolution: https://github.com/samooth/space-cmd-docs/blob/main/resolve.md
 
 ## License
 
